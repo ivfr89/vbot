@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GTA V Online Players</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+  font-family: sans-serif;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+#playerList li {
+  margin-bottom: 10px;
+}
+    </style>
+</head>
+<body>
+<h1>GTA V Online Players</h1>
+
+<h2>Agregar Jugador</h2>
+<form id="playerForm">
+    Nombre: <input type="text" id="name"><br>
+    Nivel: <input type="number" id="level"><br>
+    Plataforma: <input type="text" id="platform"><br>
+    <button type="submit">Agregar</button>
+</form>
+
+<h2>Lista de Jugadores</h2>
+<ul id="playerList">
+    <!-- Aquí se mostrarán los jugadores -->
+</ul>
+
+<script>
+    const playerForm = document.getElementById('playerForm');
+    const playerList = document.getElementById('playerList');
+
+    playerForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const level = document.getElementById('level').value;
+      const platform = document.getElementById('platform').value;
+
+      addPlayerToList(name, level, platform);
+
+      playerForm.reset();
+    });
+
+    function addPlayerToList(name, level, platform) {
+      const listItem = document.createElement('li');
+      listItem.textContent = `${name} (Nivel: ${level}, Plataforma: ${platform})`;
+      playerList.appendChild(listItem);
+    }
+
+    // Puedes agregar más funciones para interactuar con la Telegram Web App API,
+    // como enviar mensajes al chat o obtener información del usuario.
+</script>
+</body>
+</html>
